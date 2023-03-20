@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Livro;
 use Illuminate\Http\Request;
 
-class UsuarioController extends Controller
+class LivroController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+//         return dd(Livro::all());
+            return view('site.home');
     }
 
     /**
@@ -33,7 +35,7 @@ class UsuarioController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Livro $livro)
     {
         //
     }
@@ -41,7 +43,7 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Livro $livro)
     {
         //
     }
@@ -49,7 +51,7 @@ class UsuarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Livro $livro)
     {
         //
     }
@@ -57,7 +59,7 @@ class UsuarioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Livro $livro)
     {
         //
     }
