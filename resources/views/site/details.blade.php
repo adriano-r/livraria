@@ -15,7 +15,16 @@
 		<p> Postado por: {{ $livro->user->firstName}} <br>
 			Categoria: {{ $livro->categoria->nome }}
 		</p>
-		<button class="btn orange btn-large">Alugar</button>
+		
+		<form action="{{ route('site.addcarrinho') }}" method="POST" enctype="multipart/form-data">
+			@csrf
+			<input type="hidden" name="id" value="{{ $livro->id }}">
+			<input type="hidden" name="name" value="{{ $livro->nome }}">
+			<input type="hidden" name="disponivel" value="{{ $livro->disponivel }}">
+			<input type="number" name="qnt" value="1">
+			<input type="hidden" name="img" value="{{ $livro->imagem }}">
+			<button class="btn orange btn-large">Reservar</button>
+		</form>
 	</div>
 </div>
 
