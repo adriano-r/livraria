@@ -4,6 +4,8 @@
 	
 <div class="row container">
 
+	<h5>Categoria: {{ $categoria->nome }}</h5>
+
 	@foreach($livros as $livro)
 	
 	<div class="col s12 m4">

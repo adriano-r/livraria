@@ -12,8 +12,8 @@ class LivroController extends Controller
      */
     public function index()
     {
-//         return dd(Livro::all());
-            return view('site.home');
+        $livros = Livro::paginate(3);
+            return view('site.home', compact('livros'));
     }
 
     /**
