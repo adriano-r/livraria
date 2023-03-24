@@ -12,7 +12,8 @@ class CarrinhoController extends Controller
     public function carrinhoLista()
     {
                
-        $itens = Cart::all();
+//          $itens = Cart::all();
+
         dd($itens);
         // return view('site.carrinho', compact('itens'));
         // return view('site.carrinho');

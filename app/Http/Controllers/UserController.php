@@ -2,22 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Livro;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Models\Categoria;
+use App\Models\User;
 
-class LivroController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-//         $livros = Livro::paginate(3);
-//             return view('site.home', compact('livros'));
-        $livros = Livro::paginate(5);
-        $categorias = Categoria::all();
-        return view('admin.livros', compact('livros', 'categorias'));
+        //
     }
 
     /**
@@ -33,13 +29,19 @@ class LivroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = $request->all();
+        $user['password'] = bcrypt($request->password);
+        $user = User::create($user);
+        
+        Auth::login($user);
+        
+        return redirect()->route('admin.dashboard');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Livro $livro)
+    public function show(string $id)
     {
         //
     }
@@ -47,7 +49,7 @@ class LivroController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Livro $livro)
+    public function edit(string $id)
     {
         //
     }
@@ -55,7 +57,7 @@ class LivroController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Livro $livro)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -63,10 +65,8 @@ class LivroController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Livro $livro)
+    public function destroy(string $id)
     {
-        $livro = Livro::find($id);
-        $livro->delete();
-        return redirect()->route('admin.livros')->with('sucesso', 'Livro removido com sucesso!');
+        //
     }
 }

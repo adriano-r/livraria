@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Livro;
 use App\Models\Categoria;
+use Illuminate\Support\Facades\Gate;
 
 class SiteController extends Controller
 {
@@ -16,6 +17,17 @@ class SiteController extends Controller
     public function details($slug)
     {
         $livro = Livro::where('slug', $slug)->first();
+        
+//         Gate::authorize('ver-livro', $livro);
+//         $this->authorize('verLivro', $livro);
+
+        if(auth()->user()->can('verLivro', $livro)){
+            return view('site.details', compact('livro'));
+        }
+        if(auth()->user()->cannot('verLivro', $livro)){
+            return view('site.details', compact('livro'));
+        }
+        
         return view('site.details', compact('livro'));
     }
 
