@@ -14,8 +14,8 @@
         
 
             <div class="row titulo ">              
-              <h1 class="left">Produtos</h1>
-              <span class="right chip">{{ $livros->count()}} produtos exibidos nesta pagina</span>  
+              <h1 class="left">Livros</h1>
+              <span class="right chip">{{ $livros->count()}} livros exibidos nesta pagina</span>  
             </div>
 
 
@@ -51,7 +51,7 @@
                 @foreach($livros as $livro)
                 
                   <tr>
-                    <td><img src="{{ $livro->imagem }}" class="circle "></td>
+                    <td><img src="{{ url("storage/{$livro->imagem} ")}}" class="circle "></td>
                     <td>#{{ $livro->id }}</td>
                     <td>{{ $livro->titulo }}</td>                    
                     <td> {{ $livro->disponivel }} </td>

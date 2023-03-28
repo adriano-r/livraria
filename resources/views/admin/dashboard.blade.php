@@ -9,9 +9,9 @@
 
         <div class="col s12 m4">
         <article class="bg-gradient-green card z-depth-4 ">
-          <i class="material-icons">paid</i>
-          <p>Faturamento</p>
-          <h3>R$ 123,00</h3>       
+          <i class="material-icons">book</i>
+          <p>Total Reservados</p>
+          <h3>123</h3>       
         </article>
         </div>
 
@@ -25,8 +25,8 @@
 
           <div class="col s12 m4">
             <article class="bg-gradient-orange card z-depth-4 ">
-              <i class="material-icons">shopping_cart</i>
-              <p>Pedidos este mês</p>
+              <i class="material-icons">local_library</i>
+              <p>Reservados este mês</p>
               <h3>0</h3>            
             </article>
             </div>
@@ -45,7 +45,7 @@
             
             <section class="graficos col s12 m6">            
                 <div class="grafico card z-depth-4">
-                    <h5 class="center"> Produtos </h5>
+                    <h5 class="center"> Livros </h5>
                 <canvas id="myChart2" width="400" height="200"></canvas> 
             </div>            
            </section>             

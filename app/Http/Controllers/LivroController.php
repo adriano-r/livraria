@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Livro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Categoria;
 
 class LivroController extends Controller
@@ -33,7 +34,16 @@ class LivroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $livro = $request->all();
+        
+        if($request->imagem) {
+        	$livro['imagem'] = $request->imagem->store('livros');
+        }
+        
+        $livro['slug'] = Str::slug($request->titulo);
+        $livro = Livro::create($livro);
+        
+        return redirect()->route('admin.livros')->with('sucesso', 'Livro cadastrado com sucesso!');
     }
 
     /**

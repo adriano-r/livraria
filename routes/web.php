@@ -39,5 +39,5 @@ Route::get('/register', [LoginController::class, 'create'])->name('login.create'
 
 Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard')->middleware(['auth', 'checkemail']);
 Route::get('/admin/livros', [LivroController::class, 'index'])->name('admin.livros');
-Route::delete('/admin/livro/delete/{id}', [LivroController::class, 'destroy'])->name('admin.delete');
-Route::post('/admin/livro/store', [LivroController::class, 'store'])->name('admin.livro.stora');
+Route::delete('/admin/livro/delete/{id}', [LivroController::class, 'destroy'])->name('admin.livro.delete');
+Route::post('/admin/livro/store', [LivroController::class, 'store'])->name('admin.livro.store');
