@@ -2,13 +2,6 @@
 @section('titulo', 'Usuarios')
 @section('conteudo')
 
-<div class="fixed-action-btn">
-    <a  class="btn-floating btn-large bg-gradient-green modal-trigger" href="#create">
-      <i class="large material-icons">add</i>
-    </a>   
-</div>
-
-@include('admin.users.create')
  
     <div class="row container crud">
         

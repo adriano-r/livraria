@@ -45,7 +45,7 @@
         <li><a href="{{ route('admin.dashboard') }}"><i class="material-icons">dashboard</i>Dashboard</a></li>
         <li><a href="{{ route('admin.livros') }}"><i class="material-icons">playlist_add_circle</i>Livros</a></li>
         <li><a href="{{ route('site.carrinho') }}"><i class="material-icons">local_library</i>Reservados</a></li>
-        <li><a href="{{ route('site.index') }}"><i class="material-icons">bookmarks</i>Categorias</a></li>
+        <li><a href="/categoria/1"><i class="material-icons">bookmarks</i>Categorias</a></li>
         <li><a href="{{ route('admin.usuarios') }}"><i class="material-icons">peoples</i>Usuários</a></li>
     </ul>
 
