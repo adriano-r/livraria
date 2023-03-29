@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Categoria;
 
 class UserController extends Controller
 {
@@ -13,7 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+    	$users = User::paginate(5);
+    	$categorias = Categoria::all();
+    	return view('admin.usuarios', compact('users', 'categorias'));
     }
 
     /**

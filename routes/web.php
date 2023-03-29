@@ -41,3 +41,6 @@ Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('adm
 Route::get('/admin/livros', [LivroController::class, 'index'])->name('admin.livros');
 Route::delete('/admin/livro/delete/{id}', [LivroController::class, 'destroy'])->name('admin.livro.delete');
 Route::post('/admin/livro/store', [LivroController::class, 'store'])->name('admin.livro.store');
+
+Route::get('/admin/usuarios', [UserController::class, 'index'])->name('admin.usuarios');
+
