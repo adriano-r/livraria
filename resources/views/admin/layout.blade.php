@@ -35,11 +35,11 @@
     <ul id="slide-out" class="sidenav " >
       <li><div class="user-view">
         <div class="background red ">
-         <img src="{{ asset('img/office.jpg') }}" style="opacity: 0.5"> 
+         	<img src="{{ asset('img/office.jpg') }}" style="opacity: 0.5"> 
         </div>
-          <a href="#user"><img class="circle white" src="{{ asset('img/user.png') }}"></a>
-          <a href="#name"><span class="white-text name">{{ auth()->user()->firstName }}</span></a>
-          <a href="#email"><span class="white-text email">{{ auth()->user()->email }}</span></a>
+		<a href="#user"><img class="circle white" src="{{ asset('img/user.png') }}"></a>
+        <a href="#name"><span class="white-text name">{{ auth()->user()->firstName }}</span></a>
+        <a href="#email"><span class="white-text email">{{ auth()->user()->email }}</span></a>
        </div></li> 
 
         <li><a href="{{ route('admin.dashboard') }}"><i class="material-icons">dashboard</i>Dashboard</a></li>

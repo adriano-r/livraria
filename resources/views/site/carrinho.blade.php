@@ -27,7 +27,7 @@
 		<div class="card orange">
             <div class="card-content white-text">
                 <span class="card-title">Seu carrinho está vazio!</span>
-                <p>{{ Adiquira já seu livro! }}</p>
+                <p>Adiquira já seu livro! </p>
             </div>
         </div>
 	
@@ -47,7 +47,7 @@
 			<tbody>
 			@foreach($itens as $item)
 				<tr>
-					<td><img src="{{ $item->attributes->image }}" width="70px" class="responsive-img circle"></td>
+					<td><img src="{{ $item->imagem }}" width="70px" class="responsive-img circle"></td>
 					<td>{{ $item->name }}</td>
 					<td>{{ $item->disponivel }}</td>
 					
