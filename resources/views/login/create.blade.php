@@ -1,3 +1,4 @@
+
 @if($errors->any())
 	@foreach($errors->all() as $error)
 		{{ $error }} <br>
@@ -14,3 +15,4 @@
 	
 	<button type="submit"> Cadastrar </button>
 </form>
+

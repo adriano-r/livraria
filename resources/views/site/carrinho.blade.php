@@ -26,14 +26,14 @@
 	
 		<div class="card orange">
             <div class="card-content white-text">
-                <span class="card-title">Seu carrinho está vazio!</span>
+                <span class="card-title">Sem reservas encontradas!</span>
                 <p>Adiquira já seu livro! </p>
             </div>
         </div>
 	
 	@else
-			<div class="col s12 m6">
- 		<h4>Seu carrinho possui: {{ $itens->count() }} livros.</h4> 
+	<div class="col s12 m6">
+ 		<h4>Você reservou: {{ $itens->count() }} livros.</h4>
 		<table class="striped">
 			<thead>
 				<tr>
@@ -70,7 +70,7 @@
 			@endforeach()
 			</tbody>
 		</table>
-			
+		</div>	
 		<div class="card orange">
             <div class="card-content white-text">
                 <span class="card-title">{{ Cart::getTotal() }}</span>
@@ -82,8 +82,8 @@
 
 		<div class="row container center">
 			<a href="{{ route('site.index') }}" class="btn waves-effect waves-light blue"> Voltar <i class="material-icons right">arrow_back</i></a>
-			<a href="{{ route('site.limparcarrinho') }}" class="btn waves-effect waves-light blue"> Limpar carrinho <i class="material-icons right">clear</i></a>
-			<button class="btn waves-effect waves-light green"> Finalizar pedido <i class="material-icons right">clear</i></button>
+			<a href="{{ route('site.limparcarrinho') }}" class="btn waves-effect waves-light blue"> Limpar reservas <i class="material-icons right">clear</i></a>
+			<button class="btn waves-effect waves-light green"> Finalizar reserva <i class="material-icons right">clear</i></button>
 		</div>
 	</div>
 </div>

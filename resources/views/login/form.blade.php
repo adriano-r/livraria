@@ -1,3 +1,4 @@
+
 @if($mensagem = Session::get('erro'))
 	{{ $mensagem }}
 @endif
@@ -15,3 +16,4 @@
 	<input type="checkbox" name="remember"> Lembrar-me
 	<button type="submit"> Entrar </button>
 </form>
+

@@ -16,7 +16,7 @@
 			Categoria: {{ $livro->categoria->nome }}
 		</p>
 		
-		<form action="{{ route('site.addcarrinho', $livro) }}" method="POST" enctype="multipart/form-data">
+		<form action="{{ route('site.addcarrinho') }}" method="POST" enctype="multipart/form-data">
 			@csrf
 			<input type="hidden" name="id" value="{{ $livro->id }}">
 			<input type="hidden" name="name" value="{{ $livro->nome }}">

@@ -31,15 +31,15 @@ class CarrinhoController extends Controller
 
 //         return redirect()->route('site.carrinho')->with('sucesso', 'Livro reservado com sucesso!');
 
-    	dd($this->route('carrinho.id'));
-    	$livro = Livro::findOrFail();
+    	
+    	$livro = Livro::findOrFail($request->id);
     	
     	$cart = session()->get('cart', []);
     	
-    	if(isset($cart[$id])) {
-    		$cart[$id]['quantity']++;
+    	if(isset($cart[$request->id])) {
+    		$cart[$request->id]['quantity']++;
     	} else {
-    		$cart[$id] = [
+    		$cart[$request->id] = [
     				"name" => $livro->titulo,
     				"quantity" => 1,
     				"disponivel" => $livro->disponivel,
@@ -47,42 +47,39 @@ class CarrinhoController extends Controller
     	}
     	
     	session()->put('cart', $cart);
-    	return redirect()->back()->with('success', 'Product added to cart successfully!');
+    	
+        return redirect()->route('site.carrinho')->with('sucesso', 'Livro reservado com sucesso!');
     	
     	
     }
 
-//     public function removeCarrinho(Request $request)
-//     {
+    public function removeCarrinho(Request $request)
+     {
 //         Cart::remove($request->id);
-//         return redirect()->route('site.carrinho')->with('sucesso', 'Livro removido com sucesso!');
-//     }
+        return redirect()->route('site.carrinho')->with('sucesso', 'Livro removido com sucesso!');
+    }
     
-//     public function atualizaCarrinho(Request $request) 
-//     {
+    public function atualizaCarrinho(Request $request) 
+    {
 //         Cart::update($request->id, [
 //             'quantity' => [
 //                 'relative' => false,
 //                 'value' => abs($request->quantity),
 //             ],
 //         ]); 
-//         return redirect()->route('site.carrinho')->with('sucesso', 'Livro atualizado com sucesso!');
-//     }
+        return redirect()->route('site.carrinho')->with('sucesso', 'Livro atualizado com sucesso!');
+    }
     
-//     public function limparCarrinho()
-//     {
+    public function limparCarrinho()
+    {
 //         Cart::clear();
-//         return redirect()->route('site.carrinho')->with('aviso', 'Seu carrinho esta vazio!');
-//     }
+        return redirect()->route('site.carrinho')->with('aviso', 'Seu carrinho esta vazio!');
+    }
     
 //     -------------------------------
     
 
-    public function create()
-    {
-    	return view('create');
-    }
-    
+   
     public function store(Request $request)
     {
     	$request->validate([
@@ -113,31 +110,7 @@ class CarrinhoController extends Controller
      *
      * @return response()
      */
-    public function addToCart($id)
-    {
-    	$product = Product::findOrFail($id);
-    	
-    	$cart = session()->get('cart', []);
-    	
-    	if(isset($cart[$id])) {
-    		$cart[$id]['quantity']++;
-    	} else {
-    		$cart[$id] = [
-    				"name" => $product->name,
-    				"quantity" => 1,
-    				"price" => $product->price,
-    		];
-    	}
-    	
-    	session()->put('cart', $cart);
-    	return redirect()->back()->with('success', 'Product added to cart successfully!');
-    }
-    
-    /**
-     * Write code on Method
-     *
-     * @return response()
-     */
+
     public function update(Request $request)
     {
     	if($request->id && $request->quantity){
