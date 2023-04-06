@@ -9,13 +9,6 @@
 	@endforeach
 @endif
 
-<form action="{{ route('login.auth') }}" method="POST">
-	@csrf Email: <br> <input name="email"> <br> Senha: <br> <input
-		type="password" name="password"> <br> <input type="checkbox"
-		name="remember"> Lembrar-me
-	<button type="submit">Entrar</button>
-</form>
-
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -27,40 +20,26 @@
 			<button class="active">Login</button>
 		</div>
 		<div class="rgstr-btn splits">
-			<p>Don't have an account?</p>
+			<p>Não possui conta?</p>
 			<button>
-				<a href="{{ route('login.create') }}">Register</a>
+				<a href="{{ route('login.create') }}">Registrar</a>
 			</button>
 		</div>
 		<div class="wrapper">
-			<form id="login" tabindex="500">
+			<form action="{{ route('login.auth') }}" method="POST" id="login" tabindex="500">
+				@csrf
 				<h3>Login</h3>
 				<div class="mail">
-					<input type="email" name=""> <label>Email</label>
+					<input type="email" name="email"> <label>Email</label>
 				</div>
 				<div class="passwd">
-					<input type="password" name=""> <label>Senha</label>
+					<input type="password" name="password"> <label>Senha</label>
+				</div>
+				<div class="checkbox" style="display: inline-flex; align-items: center; justify-content: right">
+					<input style="width: 15px; height: 15px; padding: 5px; margin-right: -25px;" type="checkbox" name="remember"> Lembrar-me
 				</div>
 				<div class="submit">
-					<button type="submit" class="dark">Login</button>
-				</div>
-			</form>
-			<form id="register" tabindex="502">
-				<h3>Register</h3>
-				<div class="name">
-					<input type="text" name=""> <label>Full Name</label>
-				</div>
-				<div class="mail">
-					<input type="mail" name=""> <label>Mail</label>
-				</div>
-				<div class="uid">
-					<input type="text" name=""> <label>User Name</label>
-				</div>
-				<div class="passwd">
-					<input type="password" name=""> <label>Password</label>
-				</div>
-				<div class="submit">
-					<button class="dark">Register</button>
+					<button type="submit" class="dark">Entrar</button>
 				</div>
 			</form>
 		</div>
@@ -144,9 +123,9 @@
 	box-shadow: none;
 }
 
-.veen a{
-    text-decoration: inherit;
-    color: inherit;
+.veen a {
+	text-decoration: inherit;
+	color: inherit;
 }
 
 .veen button:focus {
@@ -181,21 +160,6 @@
 .veen .wrapper #login {
 	padding-top: 20%;
 	visibility: visible;
-}
-
-.veen .wrapper #register {
-	transform: translateY(-80%) translateX(100%);
-	visibility: hidden;
-}
-
-.veen .wrapper.move #register {
-	transform: translateY(-80%) translateX(0%);
-	visibility: visible;
-}
-
-.veen .wrapper.move #login {
-	transform: translateX(-100%);
-	visibility: hidden;
 }
 
 .veen .wrapper>form>div {
@@ -236,14 +200,6 @@
 .veen .wrapper input:focus {
 	outline: none;
 	border-color: #ff4931;
-}
-
-.veen>.wrapper.move {
-	left: 45%;
-}
-
-.veen>.wrapper.move input:focus {
-	border-color: #e0b722;
 }
 
 @media ( max-width : 767px) {

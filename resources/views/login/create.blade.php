@@ -25,7 +25,7 @@
 			<form action="{{ route('users.store') }}" method="POST" id="login" tabindex="500" tabindex="502">
 				@csrf
 				
-				<h3>Cadastrar novo usuário</h3>
+				<h3>Registre sua conta</h3>
 				<div class="name">
 					<input type="text" name="firtName"> <label>Nome</label>
 				</div>
@@ -39,7 +39,7 @@
 					<input type="password" name="password"> <label>Senha</label>
 				</div>
 				<div class="submit">
-					<button type="submit" class="dark">Cadastrar</button>
+					<button type="submit" class="dark">Registrar</button>
 				</div>
 			</form>
 		</div>
