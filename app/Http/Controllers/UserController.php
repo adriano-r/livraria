@@ -35,6 +35,7 @@ class UserController extends Controller
         $user = $request->all();
         $user['password'] = bcrypt($request->password);
         $user = User::create($user);
+        dd($user);
         
         Auth::login($user);
         

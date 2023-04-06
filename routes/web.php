@@ -19,8 +19,8 @@ use App\Http\Controllers\UserController;
 |
 */
 
-// Route::resource('livros', LivroController::class);
-// Route::resource('users', UserController::class);
+ Route::resource('livros', LivroController::class);
+ Route::resource('users', UserController::class);
 
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
 Route::get('/livro/{slug}', [SiteController::class, 'details'])->name('site.details');
